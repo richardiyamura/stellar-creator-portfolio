@@ -1,5 +1,5 @@
 [package]
-name = "stellar-governance-contract"
+name = "oracle"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
@@ -10,14 +10,7 @@ license.workspace = true
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-soroban-sdk.workspace = true
-thiserror.workspace = true
+soroban-sdk = { workspace = true, features = ["alloc"] }
 
 [dev-dependencies]
 soroban-sdk = { workspace = true, features = ["testutils"] }
-
-[profile.release]
-opt-level = "z"
-strip = true
-lto = true
-codegen-units = 1
